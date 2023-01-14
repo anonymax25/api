@@ -49,6 +49,8 @@ ENV NODE_ENV production
 # Passing in --only=production ensures that only the production dependencies are installed.
 # This ensures that the node_modules directory is as optimized as possible.
 RUN npm ci --only=production && npm cache clean --force
+RUN yarn install --frozen-lockfile --production && yarn cache clean --force
+
 
 USER node
 
