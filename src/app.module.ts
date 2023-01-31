@@ -8,12 +8,14 @@ import { dbConfig } from './database/dbModule.config';
 import { PrometheusModule } from '@willsoto/nestjs-prometheus';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggingInterceptor } from './utils/logging.interceptor';
+import configuration from './config/configuration';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
+      load: [configuration],
       isGlobal: true,
-      envFilePath: '.env',
+      ignoreEnvFile: true,
     }),
     TypeOrmModule.forRootAsync(dbConfig),
     PrometheusModule.register(),
