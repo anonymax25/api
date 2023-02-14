@@ -8,7 +8,9 @@ async function bootstrap() {
     process.env.NODE_ENV == null ? 'dev' : process.env.NODE_ENV;
 
   if (process.env.NODE_ENV === 'dev') {
-    dotenv.config();
+    dotenv.config({
+      path: 'envs/.env',
+    });
   }
 
   console.log(`NODE_ENV: ${process.env.NODE_ENV}`);

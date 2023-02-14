@@ -10,7 +10,7 @@ describe('AppController', () => {
     const app: TestingModule = await Test.createTestingModule({
       imports: [
         ConfigModule.forRoot({
-          envFilePath: '.test.env',
+          envFilePath: 'envs/.test.env',
         }),
       ],
       controllers: [AppController],
